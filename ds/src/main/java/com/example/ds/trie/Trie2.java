@@ -1,4 +1,4 @@
-package com.example.java_lib;
+package com.example.ds.trie;
 
 import java.util.HashMap;
 import java.util.Map;

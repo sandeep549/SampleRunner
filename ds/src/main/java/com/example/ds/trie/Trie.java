@@ -1,4 +1,4 @@
-package com.example.java_lib;
+package com.example.ds.trie;
 
 /**
  * Simple Trie data structure to insert, find keys and find suggestions.

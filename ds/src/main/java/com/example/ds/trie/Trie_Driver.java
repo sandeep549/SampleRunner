@@ -1,6 +1,6 @@
-package com.example.java_lib;
+package com.example.ds.trie;
 
-public class MyClass {
+public class Trie_Driver {
     public static void main(String[] args){
         System.out.println("===============");
         Trie trie = new Trie();
@@ -14,12 +14,5 @@ public class MyClass {
         System.out.println("Find anya=" + trie.search("anaya"));
 
         trie.printSuggestions("how");
-
-        Trie2 trie2 = new Trie2();
-        trie2.insert("sandeep");
-        trie2.insert("simar");
-        trie2.insert("daksh");
-        System.out.println("Find sandeep=" + trie2.find("sandeep"));
-        trie2.printSuggestions("s");
     }
 }
