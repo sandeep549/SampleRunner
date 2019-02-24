@@ -1,7 +1,7 @@
 package com.example.java_lib;
 
 /**
- * Simple Trie data structure to insert and find keys.
+ * Simple Trie data structure to insert, find keys and find suggestions.
  */
 public class Trie {
     private static final int SIZE = 25;
