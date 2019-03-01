@@ -12,7 +12,6 @@ public class CardValidator {
 
     /**
      * Function is online and predictive, so expected to be called for each character input.
-     *
      * @param mmyy Input string.
      * @return true if current input can be within range of 15 years from now, false otherwise.
      */
@@ -28,7 +27,6 @@ public class CardValidator {
 
     /**
      * Checks mmyy value in within 15 years range from current month.
-     *
      * @param mmyy Input value to be checked.
      * @return true if within range, false otherwise.
      */
