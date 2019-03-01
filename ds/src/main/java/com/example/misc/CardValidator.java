@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class CardValidator {
 
     private static final int LEN = 4;
-    private static String DDMM_REGEX = "^(0[0-9]|1[0-2])[0-9]{2}$";
+    private static String DDMM_REGEX = "^(0[1-9]|1[0-2])[0-9]{2}$";
     private Pattern pattern = Pattern.compile(DDMM_REGEX);
 
     /**
@@ -17,12 +17,13 @@ public class CardValidator {
      * @return true if current input can be within range of 15 years from now, false otherwise.
      */
     public boolean check(String mmyy) {
-        if (mmyy == null) return true;
-        // If user not yet entered all digits, check with prediction using lower bound and fill 0 at last
+        if (mmyy == null || mmyy.length() == 0) return true;
+        // If user not yet entered all digits, check with prediction using lower & upper bound
         String mmyyMin = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '0');
         String mmyyMax = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '9');
-        return mmyy.length() <= 2 ? pattern.matcher(mmyyMin).matches()
-                : pattern.matcher(mmyyMin).matches() && (isWithinRange(mmyyMin) || isWithinRange(mmyyMax));
+        return mmyy.length() <= 2 ? pattern.matcher(mmyyMin).matches() || pattern.matcher(mmyyMax).matches()
+                : (pattern.matcher(mmyyMin).matches() || pattern.matcher(mmyyMax).matches())
+                && (isWithinRange(mmyyMin) || isWithinRange(mmyyMax));
     }
 
     /**

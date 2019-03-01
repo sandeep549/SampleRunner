@@ -6,6 +6,7 @@ public class Driver {
 
         System.out.println("-----Month Checks-----");
         System.out.println("" + card.check("0"));
+        System.out.println("" + card.check("00"));
 
         System.out.println("" + card.check("1"));
         System.out.println("" + card.check("12"));
