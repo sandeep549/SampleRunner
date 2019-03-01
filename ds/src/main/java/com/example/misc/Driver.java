@@ -13,8 +13,16 @@ public class Driver {
         System.out.println("" + card.check("13"));
         System.out.println("" + card.check("3"));
 
+        System.out.println("-----3 digits Month-Year Checks Upper Bound -----");
+        System.out.println("" + card.check("021"));
+        System.out.println("" + card.check("031"));
+        System.out.println("" + card.check("041"));
 
-        System.out.println("-----Month-Year Checks Upper Bound -----");
+        System.out.println("" + card.check("043"));
+        System.out.println("" + card.check("044"));
+
+
+        System.out.println("-----4 digits Month-Year Checks Upper Bound -----");
         System.out.println("" + card.check("1239"));
         System.out.println("" + card.check("1234"));
         System.out.println("" + card.check("1233"));
@@ -22,7 +30,7 @@ public class Driver {
         System.out.println("" + card.check("0234"));
 
 
-        System.out.println("-----Month-Year Checks Lower Bound-----");
+        System.out.println("-----4 digits Month-Year Checks Lower Bound-----");
         System.out.println("" + card.check("0219"));
         System.out.println("" + card.check("0319"));
         System.out.println("" + card.check("0419"));

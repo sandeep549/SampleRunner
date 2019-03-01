@@ -19,9 +19,10 @@ public class CardValidator {
     public boolean check(String mmyy) {
         if (mmyy == null) return true;
         // If user not yet entered all digits, check with prediction using lower bound and fill 0 at last
-        String mmyyFilled = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '0');
-        return mmyy.length() <= 2 ? pattern.matcher(mmyyFilled).matches()
-                : pattern.matcher(mmyyFilled).matches() && isWithinRange(mmyyFilled);
+        String mmyyMin = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '0');
+        String mmyyMax = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '9');
+        return mmyy.length() <= 2 ? pattern.matcher(mmyyMin).matches()
+                : pattern.matcher(mmyyMin).matches() && (isWithinRange(mmyyMin) || isWithinRange(mmyyMax));
     }
 
     /**
