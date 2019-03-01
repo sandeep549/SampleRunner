@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class CardValidator {
 
     private static final int LEN = 4;
-    private static String DDMM_REGEX = "^(0[1-9]|1[0-2])[0-9]{2}$";
+    private static String DDMM_REGEX = "^(0[0-9]|1[0-2])[0-9]{2}$";
     private Pattern pattern = Pattern.compile(DDMM_REGEX);
 
     /**
@@ -20,7 +20,7 @@ public class CardValidator {
         if (mmyy == null) return true;
         // If user not yet entered all digits, check with prediction using lower bound and fill 0 at last
         String mmyyFilled = String.format("%1$-" + LEN + "s", mmyy).replace(' ', '0');
-        return mmyy.length() <= 2 ? mmyyFilled.equals("0000") || pattern.matcher(mmyyFilled).matches()
+        return mmyy.length() <= 2 ? pattern.matcher(mmyyFilled).matches()
                 : pattern.matcher(mmyyFilled).matches() && isWithinRange(mmyyFilled);
     }
 
