@@ -1,14 +1,19 @@
 package com.example.misc;
 
 import java.util.Calendar;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class CardValidator {
 
     private static final int LEN = 4;
+    private static final int YEAR_RANGE = 15;
     private static String DDMM_REGEX = "^(0[1-9]|1[0-2])[0-9]{2}$";
     private Pattern pattern = Pattern.compile(DDMM_REGEX);
+    private Calendar calendar;
+
+    public CardValidator(Calendar calendar) {
+        this.calendar = calendar;
+    }
 
     /**
      * Function is online and predictive, so expected to be called for each character input.
@@ -32,15 +37,15 @@ public class CardValidator {
      */
     private boolean isWithinRange(String mmyy) {
         String lowerBoundString = ""
-                + Calendar.getInstance(Locale.getDefault()).get(Calendar.YEAR) % 100
-                + String.format("%02d", Calendar.getInstance(Locale.getDefault()).get(Calendar.MONTH));
+                + calendar.get(Calendar.YEAR) % 100
+                + String.format("%02d", calendar.get(Calendar.MONTH));
         String upperBoundString = ""
-                + (Calendar.getInstance(Locale.getDefault()).get(Calendar.YEAR) + 15) % 100
-                + String.format("%02d", Calendar.getInstance(Locale.getDefault()).get(Calendar.MONTH));
+                + (calendar.get(Calendar.YEAR) + YEAR_RANGE) % 100
+                + String.format("%02d", calendar.get(Calendar.MONTH));
         int lowerBound = Integer.parseInt(lowerBoundString);
         int upperBound = Integer.parseInt(upperBoundString);
         // Reverse mmyy
         int value = Integer.parseInt(mmyy.substring(2) + mmyy.substring(0, 2));
-        return value > lowerBound && value < upperBound;
+        return value > lowerBound && value <= upperBound;
     }
 }
