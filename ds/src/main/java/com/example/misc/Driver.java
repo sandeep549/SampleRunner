@@ -29,6 +29,8 @@ public class Driver {
 
         System.out.println("-----Misc Checks -----");
         System.out.println("" + card.check("0120"));
+        System.out.println("" + card.check("")); // if empty supplied
+        System.out.println("" + card.check(null)); // if null supplied
 
     }
 }
