@@ -44,8 +44,7 @@ public class CardValidator {
                 + String.format("%02d", calendar.get(Calendar.MONTH));
         int lowerBound = Integer.parseInt(lowerBoundString);
         int upperBound = Integer.parseInt(upperBoundString);
-        // Reverse mmyy
-        int value = Integer.parseInt(mmyy.substring(2) + mmyy.substring(0, 2));
+        int value = Integer.parseInt(mmyy.substring(2) + mmyy.substring(0, 2)); // yymm
         return value > lowerBound && value <= upperBound;
     }
 }

@@ -6,7 +6,7 @@ public class Driver {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.MONTH, 2); // 2 means march
-        calendar.set(Calendar.YEAR, 2019);
+        calendar.set(Calendar.YEAR, 2098);
 
         CardValidator card = new CardValidator(calendar);
 
@@ -44,6 +44,10 @@ public class Driver {
         test(card.check("0120"), true);
         test(card.check(""), true); // if empty supplied
         test(card.check(null), true); // if null supplied
+        test(card.check("a"), false);
+        test(card.check("ab"), false);
+        test(card.check("abc"), false);
+        test(card.check("abcd"), false);
 
     }
 
