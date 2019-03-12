@@ -1,10 +1,10 @@
-package com.example.ds.tree.bstfrompostorder;
+package com.example.ds.tree.bstfromtraversal;
 
 import com.example.ds.tree.TreeNode;
 
 import java.util.Stack;
 
-public class Bst {
+class Bst {
 
     int[] arr;
     int i;

@@ -1,4 +1,4 @@
-package com.example.ds.tree.bstfrompostorder;
+package com.example.ds.tree.bstfromtraversal;
 
 import com.example.ds.tree.TreeNode;
 
