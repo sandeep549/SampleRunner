@@ -1,2 +1,1 @@
-# SampleRunner
-Repository for sample java programs.
+Repository for DS Algo programs in java.
